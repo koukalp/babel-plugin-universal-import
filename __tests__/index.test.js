@@ -2,8 +2,8 @@
 
 const pluginTester = require('babel-plugin-tester')
 const createBabylonOptions = require('babylon-options')
-const plugin = require('../index')
 const babel = require('@babel/core')
+const plugin = require('../index')
 
 const babelOptions = {
   parserOpts: createBabylonOptions({
@@ -130,12 +130,10 @@ test.skip('wallaby-live-coding', () => {
   // const input = 'universal(props => import(`./footer/${props.experiment}`));'
   const input = 'import(`./base/${page}/index`)'
 
-  const output = babel.transform(
-    input,
-    Object.assign({}, babelOptions, {
-      plugins: babelOptions.plugins.concat([plugin])
-    })
-  )
+  const output = babel.transform(input, {
+    ...babelOptions,
+    plugins: babelOptions.plugins.concat([plugin])
+  })
 
   expect(output.code).toBeDefined()
 })
