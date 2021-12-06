@@ -61,7 +61,7 @@
     "zen-observable": "^0.8.15"
   },
   "peerDependencies": {
-    "webpack": "^4.4.0"
+    "webpack": "^4.4.0 || ^5.0.0"
   },
   "jest": {
     "testMatch": [
